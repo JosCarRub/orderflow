@@ -1,0 +1,4 @@
+CREATE TABLE processed_events (
+    stripe_event_id  VARCHAR(255) PRIMARY KEY,
+    processed_at     TIMESTAMP WITH TIME ZONE  NOT NULL
+);
