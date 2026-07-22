@@ -1,7 +1,7 @@
 package com.josecarlosdev.orderflow.domain.exception;
 
-public class ProductNotFounException extends DomainException{
-    public ProductNotFounException(Long productId) {
+public class ProductNotFoundException extends DomainException{
+    public ProductNotFoundException(Long productId) {
         super("Producto no encontrado: %d".formatted(productId));
     }
 }

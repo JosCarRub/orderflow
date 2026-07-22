@@ -4,7 +4,7 @@ import com.josecarlosdev.orderflow.application.port.OrderRepository;
 import com.josecarlosdev.orderflow.application.port.ProductRepository;
 import com.josecarlosdev.orderflow.domain.Order;
 import com.josecarlosdev.orderflow.domain.Product;
-import com.josecarlosdev.orderflow.domain.exception.ProductNotFounException;
+import com.josecarlosdev.orderflow.domain.exception.ProductNotFoundException;
 /*
     Sin annotation @Service.
     La capa application es agnostica al framework.
@@ -22,7 +22,7 @@ public class CreateCheckoutUseCase {
 
     public Order handleOrder(Long productId, int quantity){
         Product product = productRepository.findById(productId)
-                .orElseThrow(() -> new ProductNotFounException(productId));
+                .orElseThrow(() -> new ProductNotFoundException(productId));
 
         Order order = new Order(product, quantity);
         return orderRepository.save(order);

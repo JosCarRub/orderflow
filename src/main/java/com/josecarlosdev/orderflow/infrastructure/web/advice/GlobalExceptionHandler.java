@@ -3,7 +3,7 @@ package com.josecarlosdev.orderflow.infrastructure.web.advice;
 import com.josecarlosdev.orderflow.domain.exception.DomainException;
 import com.josecarlosdev.orderflow.domain.exception.InsufficientStockException;
 import com.josecarlosdev.orderflow.domain.exception.InvalidOrderStateException;
-import com.josecarlosdev.orderflow.domain.exception.ProductNotFounException;
+import com.josecarlosdev.orderflow.domain.exception.ProductNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(ProductNotFounException.class) //404
-    public ProblemDetail handleProductNotFound(ProductNotFounException e) {
+    @ExceptionHandler(ProductNotFoundException.class) //404
+    public ProblemDetail handleProductNotFound(ProductNotFoundException e) {
         ProblemDetail problem = ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND, e.getMessage());
         problem.setTitle("Producto no encontrado");
         return problem;
