@@ -32,7 +32,7 @@ public class GlobalExceptionHandler {
         return problem;
     }
 
-    @ExceptionHandler(DomainException.class) // 500
+    @ExceptionHandler(DomainException.class) // 400
     public ProblemDetail handleDomainException(DomainException e) {
         ProblemDetail problem = ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, e.getMessage());
         problem.setTitle("Error no previsto "); // por si olvido un handler para un nuevo error
