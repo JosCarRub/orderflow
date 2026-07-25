@@ -1,7 +1,7 @@
 package com.josecarlosdev.orderflow.infrastructure.stripe;
 
 import com.josecarlosdev.orderflow.application.exception.PaymentGatewayException;
-import com.josecarlosdev.orderflow.application.port.CheckoutSession;
+import com.josecarlosdev.orderflow.application.port.model.CheckoutSession;
 import com.josecarlosdev.orderflow.application.port.PaymentGateway;
 import com.josecarlosdev.orderflow.domain.Order;
 import com.josecarlosdev.orderflow.infrastructure.config.StripeProperties;
