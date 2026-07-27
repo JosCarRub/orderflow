@@ -1,7 +1,7 @@
 package com.josecarlosdev.orderflow.infrastructure.web.controller;
 
 import com.josecarlosdev.orderflow.application.usecase.CreateCheckoutUseCase;
-import com.josecarlosdev.orderflow.domain.Order;
+import com.josecarlosdev.orderflow.application.usecase.result.CheckoutResult;
 import com.josecarlosdev.orderflow.infrastructure.web.ApiPaths;
 import com.josecarlosdev.orderflow.infrastructure.web.dto.CheckoutRequest;
 import com.josecarlosdev.orderflow.infrastructure.web.dto.CheckoutResponse;
@@ -23,7 +23,7 @@ public class CheckoutController {
 
     @PostMapping(ApiPaths.CHECKOUT)
     public ResponseEntity<CheckoutResponse> checkout(@Valid @RequestBody CheckoutRequest request){
-        Order order = createCheckout.handleOrder(request.productId(), request.quantity());
-        return ResponseEntity.status(HttpStatus.CREATED).body(CheckoutResponse.from(order));
+        CheckoutResult result = createCheckout.handleOrder(request.productId(), request.quantity());
+        return ResponseEntity.status(HttpStatus.CREATED).body(CheckoutResponse.from(result));
     }
 }
