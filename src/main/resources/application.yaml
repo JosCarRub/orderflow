@@ -5,6 +5,7 @@ spring:
     location: classpath:banner.txt
 
   jpa:
+    open-in-view: false
     hibernate:
       ddl-auto: validate
     properties:
